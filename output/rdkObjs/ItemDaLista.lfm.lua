@@ -39,6 +39,7 @@ local function constructNew_frmItemDaLista()
     obj.button1 = GUI.fromHandle(_obj_newObject("button"));
     obj.button1:setParent(obj.layout1);
     obj.button1:setAlign("left");
+    obj.button1:setFontSize(9);
     obj.button1:setWidth(20);
     obj.button1:setText("✖");
     obj.button1:setName("button1");

@@ -71,6 +71,7 @@ local function constructNew_frmDesbravadores23_svg()
     obj.image1 = GUI.fromHandle(_obj_newObject("image"));
     obj.image1:setParent(obj.rectangle1);
     obj.image1:setSRC("/Imagens/layoutDinheiro.png");
+    obj.image1:setHitTest(true);
     obj.image1:setLeft(280);
     obj.image1:setTop(-2);
     obj.image1:setWidth(213);
@@ -365,30 +366,40 @@ local function constructNew_frmDesbravadores23_svg()
             	  self.labSoma3.text = '$' .. format_thousand(sheet.soma);
         end, obj);
 
-    obj._e_event1 = obj.troca:addEventListener("onMouseEnter",
+    obj._e_event1 = obj.image1:addEventListener("onClick",
+        function (_)
+            if rrpg.getMesaDe(sheet).meuJogador.isMestre then
+                                    dialogs.inputQuery("Carteira do jogador", "Colocar dinheiro para jogador:", "",
+                                       function (valorPreenchido)
+                                       sheet.Soma = (sheet.Soma or 0 ) + valorPreenchido; 
+                                end);
+                                    end;
+        end, obj);
+
+    obj._e_event2 = obj.troca:addEventListener("onMouseEnter",
         function (_)
             self.troca.src = "/Imagens/vender_off.png"
         end, obj);
 
-    obj._e_event2 = obj.troca:addEventListener("onMouseLeave",
+    obj._e_event3 = obj.troca:addEventListener("onMouseLeave",
         function (_)
             self.troca.src = "/Imagens/vender_on.png"
         end, obj);
 
-    obj._e_event3 = obj.troca:addEventListener("onClick",
+    obj._e_event4 = obj.troca:addEventListener("onClick",
         function (_)
             self.fichaPrincipal.visible = true
                          self.Pag2.visible = false;
         end, obj);
 
-    obj._e_event4 = obj.button1:addEventListener("onClick",
+    obj._e_event5 = obj.button1:addEventListener("onClick",
         function (_)
             -- Usuário clicou no botão de criar novo item.
                                             -- Vamos inserir um novo item no nosso recordList                              
                                             self.rclListaDosItens:append();
         end, obj);
 
-    obj._e_event5 = obj.rclListaDosItens:addEventListener("onSelect",
+    obj._e_event6 = obj.rclListaDosItens:addEventListener("onSelect",
         function (_)
             --[[
                                     Este evento é chamado quando o usuário selecionar/deselecionar itens da lista. Quando o usuário selecionar, vamos fazer nosso dataScopeBox (e todas as tag dentro dele) salvar e carregar dados no   objeto Nodo (NodeDatabase) do item selecionado.
@@ -401,13 +412,13 @@ local function constructNew_frmDesbravadores23_svg()
                                       self.boxDetalhesDoItem.visible = (node ~= nil);
         end, obj);
 
-    obj._e_event6 = obj.testeee:addEventListener("onClick",
+    obj._e_event7 = obj.testeee:addEventListener("onClick",
         function (_)
             self.boxDetalhesDoItem.node.custo = (sheet.custo or 0) + 0;
                     self.boxDetalhesDoItem.node.nivelItem = 0;
         end, obj);
 
-    obj._e_event7 = obj.label1:addEventListener("onClick",
+    obj._e_event8 = obj.label1:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
             		dialogs.inputQuery("Nivel do item", "Level:", "",
@@ -417,7 +428,7 @@ local function constructNew_frmDesbravadores23_svg()
             		end;
         end, obj);
 
-    obj._e_event8 = obj.dataLink2:addEventListener("onChange",
+    obj._e_event9 = obj.dataLink2:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             if self.boxDetalhesDoItem.node.nivelItem == 0 then
                 self.Venda.visible = false;
@@ -455,7 +466,7 @@ local function constructNew_frmDesbravadores23_svg()
               end;
         end, obj);
 
-    obj._e_event9 = obj.colocarDinheiro:addEventListener("onClick",
+    obj._e_event10 = obj.colocarDinheiro:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
             		dialogs.inputQuery("Caixa", "Quantidades:", "",
@@ -465,7 +476,7 @@ local function constructNew_frmDesbravadores23_svg()
             		end;
         end, obj);
 
-    obj._e_event10 = obj.botaoDeVenda:addEventListener("onClick",
+    obj._e_event11 = obj.botaoDeVenda:addEventListener("onClick",
         function (_)
             local custo = tonumber(sheet.custo) or 0;
                 local Soma = tonumber(sheet.Soma) or 0;
@@ -474,6 +485,7 @@ local function constructNew_frmDesbravadores23_svg()
         end, obj);
 
     function obj:_releaseEvents()
+        __o_rrpgObjs.removeEventListenerById(self._e_event11);
         __o_rrpgObjs.removeEventListenerById(self._e_event10);
         __o_rrpgObjs.removeEventListenerById(self._e_event9);
         __o_rrpgObjs.removeEventListenerById(self._e_event8);

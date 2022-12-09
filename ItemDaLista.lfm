@@ -4,7 +4,7 @@
 
         <layout align="client" margins="{left=4, right=4, top=4, bottom=4}">
                 <!-- Botão para apagar o item da lista -->
-                <button align="left" width="20" text="✖">
+                <button align="left" fontSize="9" width="20" text="✖">
                      <event name="onDblclick">
 
                        ndb.deleteNode(sheet);
