@@ -183,11 +183,17 @@ self.labcusto.text = '$' .. format_thousand(sheet.custo);
                      </image>
                      <image name="botaoDeVenda" visible="true" left="8.59" top="241.69" width="58.19" height="56.69" opacity="1" hitTest="true" cursor="handPoint">
                         <event name="onClick"> 
-    local custo = tonumber(sheet.custo) or 0;
-    local Soma = tonumber(sheet.Soma) or 0;
-    sheet.Soma = Soma - self.boxDetalhesDoItem.node.custo; 
-    custo = ndb.deleteNode(self.boxDetalhesDoItem.node);
-    </event>
+                           local custo = tonumber(sheet.custo) or 0;
+                           local Soma = tonumber(sheet.Soma) or 0;
+                           Soma = Soma - self.boxDetalhesDoItem.node.custo;
+                           if Soma == 0 then
+                             Soma = 0;
+                           else
+                            showMessage("Você não tem mais capital")
+                            end;
+                           sheet.Soma = Soma;
+                           custo = ndb.deleteNode(self.boxDetalhesDoItem.node);  
+                       </event>
                      </image>
                   </dataScopeBox>
                </layout>
