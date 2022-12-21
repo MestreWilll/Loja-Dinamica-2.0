@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form name="frmLojaDinamica" align="client">
-<!-- IMPORTES DOS ITENS MASCOTE E SKILL (Tive que deixa de fora do layout senão não aparece)-->
-  
-<layout name="Pag1" align="client" visible="true">
-  <scrollBox align="client">
-
-      <rectangle left="0" top="0" width="750" height="650" color="black"
-         xradius="25" yradius="25" cornerType="round" >
-
-        <label fontSize="28" fontColor="lime" fontStyle="bold"  
-                   left="346" top="0" width="205" height="45" name="labSoma">
-        <dataLink field="Soma">
-            <event name="onChange">
+   <layout name="Pag1" align="client" visible="true">
+      <scrollBox align="client">
+         <rectangle left="0" top="0" width="750" height="650" color="black" xradius="25" yradius="25" cornerType="round">
+            <label fontSize="28" fontColor="lime" fontStyle="bold" left="346" top="0" width="205" height="45" name="labSoma">
+               <dataLink field="Soma">
+                  <event name="onChange">
 function format_thousand(v)
 	local s = string.format("%d", math.floor(v))
 	local pos = string.len(s) % 3 
@@ -24,11 +18,10 @@ end;
 	  self.labSoma.text = '$' .. format_thousand(sheet.soma);
           
             </event>
-	    </dataLink>
-
-      </label>
-        <image src="/Imagens/layoutDinheiro.png" hitTest="true" left="280" top="-2" width="213" height="56">
-                <event name="onClick">
+               </dataLink>
+            </label>
+            <image src="/Imagens/layoutDinheiro.png" hitTest="true" left="280" top="-2" width="213" height="56">
+               <event name="onClick">
                         if rrpg.getMesaDe(sheet).meuJogador.isMestre then
                         dialogs.inputQuery("Carteira do jogador", "Colocar dinheiro para jogador:", "",
                            function (valorPreenchido)
@@ -37,104 +30,85 @@ end;
                         end;
 
                 </event>
-        </image>
-
-     
-
-
-
-
-
-    <image hitTest="true" cursor="handPoint" left="537" top="-2" width="63" height="60" name="troca" visible="false" src="/Imagens/vender_on.png">
-        <event name="onMouseEnter">   
+            </image>
+            <image hitTest="true" cursor="handPoint" left="537" top="-2" width="63" height="60" name="troca" visible="false" src="/Imagens/vender_on.png">
+               <event name="onMouseEnter">   
                               self.troca.src = "/Imagens/vender_off.png"
 		</event>
-		<event name="OnMouseLeave">
+               <event name="OnMouseLeave">
 	                          self.troca.src = "/Imagens/vender_on.png"
 		</event>
-        <event name="onClick">
+               <event name="onClick">
              self.fichaPrincipal.visible = true
              self.Pag2.visible = false;
 		</event>
-		 </image>  
+            </image>
+              
                  
                  
                  ----- começa aq
 
 
-       <layout name="posicao" left="0" top="0" width="800" height="800" />
-
-
-
-        <layout left="0" top="0" width="750" height="650" frameStyle="/frames/frame2.xml" 
-               margins="{left=10, top=10, right=10, bottom=10}">        
-        <layout align="client" frameStyle="/frames/frame1.xml" 		
-               margins="{left=10, top=10, right=10, bottom=10}">				   
-			   
-        
-		
-				   
-        <!-- Botão de inserir novo item à lista -->
-        <layout align="top" height="30" margins="{bottom=4}">
-                <button text="Criar Novo Item" width="150" align="left" fontStyle="bold">
+       
+            <layout name="posicao" left="0" top="0" width="800" height="800" />
+            <layout left="0" top="0" width="750" height="650" frameStyle="/frames/frame2.xml" margins="{left=10, top=10, right=10, bottom=10}">
+               <layout align="client" frameStyle="/frames/frame1.xml" margins="{left=10, top=10, right=10, bottom=10}">
+                  <!-- Botão de inserir novo item à lista -->
+                  <layout align="top" height="30" margins="{bottom=4}">
+                     <button text="Criar Novo Item" width="150" align="left" fontStyle="bold">
                         <event name="onClick">
                                 -- Usuário clicou no botão de criar novo item.
                                 -- Vamos inserir um novo item no nosso recordList                              
                                 self.rclListaDosItens:append();
                         </event>
-                </button>
-        </layout>  
-               
-   
-
-        <!-- recordList, representando a lista -->
-        <recordList name="rclListaDosItens" field="campoDosItens" templateForm="frmItemDaLista"
-                                align="client" selectable="true">                              
-
-                <event name="onSelect">
+                     </button>
+                  </layout>
+                  <!-- recordList, representando a lista -->
+                  <recordList name="rclListaDosItens" field="campoDosItens" templateForm="frmItemDaLista" align="client" selectable="true">
+                     <event name="onSelect">
                   local node = self.rclListaDosItens.selectedNode;  
                          self.boxDetalhesDoItem.node = node;      
 						 
                   -- a caixa de detalhe só ficará visível se houver item selecionado
                           self.boxDetalhesDoItem.visible = (node ~= nil);
                 </event>
-                
-        </recordList>       
-        <!-- dataScopeBox representando a nossa caixa de detalhes -->  
-      
-        <dataScopeBox name="boxDetalhesDoItem" visible="true" align="right" 
-                     width="500" margins="{left=4, right=4}">
-                <!-- Abaixo as tretas. Para vende com imagem   --> 
-       <image src="/Imagens/LojaDinamica.png" left="0" top="0" width="500" height="300"></image>
+                  </recordList>
+                  <!-- dataScopeBox representando a nossa caixa de detalhes -->
+                  <dataScopeBox name="boxDetalhesDoItem" visible="true" align="right" width="500" margins="{left=4, right=4}">
+                     <!-- Abaixo as tretas. Para vende com imagem   -->
+                     <image src="/Imagens/LojaDinamica.png" left="0" top="0" width="500" height="300" />
+                     
  // Loja dinamica com EDITS e IMagem ----------
- <edit name="campoTitulo" field="campoTitulo" horzTextAlign="center" left="221.19" fontStyle="bold" top="145.56" width="180" height="35.44" transparent="true" /> 
- <textEditor field="EdicaoItensLoja" left="197" fontStyle="bold" top="183.81" width="228.56" height="97.50" transparent="true"/>
- <image hitTest="true" cursor="handPoint" left="439.56" top="0.69" width="58.19" height="56.69">
-        <event name="onClick">
+ 
+                     <edit name="campoTitulo" field="campoTitulo" horzTextAlign="center" left="221.19" fontStyle="bold" top="145.56" width="180" height="35.44" transparent="true" />
+                     <textEditor field="EdicaoItensLoja" left="197" fontStyle="bold" top="183.81" width="228.56" height="97.50" transparent="true" />
+                     <image hitTest="true" cursor="handPoint" left="439.56" top="0.69" width="58.19" height="56.69">
+                        <event name="onClick">
                 if rrpg.getMesaDe(sheet).meuJogador.isMestre then
                 ndb.deleteNode(self.boxDetalhesDoItem.node);
                 else
                 showMessage("Você não tem permissão");
                 end;
         </event>
- </image>
- <image name="Reset" left="439.56" hitTest="true" cursor="handPoint" top="244.69" width="58.19" height="56.69"> 
-        <event name="onClick">
+                     </image>
+                     <image name="Reset" left="439.56" hitTest="true" cursor="handPoint" top="244.69" width="58.19" height="56.69">
+                        <event name="onClick">
         self.boxDetalhesDoItem.node.custo = (sheet.custo or 0) + 0;
         self.boxDetalhesDoItem.node.nivelItem = 0;
         </event>
-</image>
-<image field="ImagemDoProduto" editable="true" style="proportional" 
-left="7.81" top="80.88" width="174.56" height="149.63" />
+                     </image>
+                     <image field="ImagemDoProduto" editable="true" style="proportional" left="7.81" top="80.88" width="174.56" height="149.63" />
+                     
 
 
 
 -- teste efetivo, feito com sucesso: 100% 
 -- Aqui fica toda a estrutura de dados e dimuição do valor.
 
- <label field="custo" left="285.59" top="43.75" width="107" height="37.50" fontSize="20" fontColor="black" fontStyle="bold">
- <dataLink field="custo">
-        <event name="onChange">
+ 
+                     <label field="custo" left="285.59" top="43.75" width="107" height="37.50" fontSize="20" fontColor="black" fontStyle="bold">
+                        <dataLink field="custo">
+                           <event name="onChange">
 function format_thousand(v)
     local s = string.format("%d", math.floor(v))
     local pos = string.len(s) % 3 
@@ -147,13 +121,10 @@ end;
 self.labcusto.text = '$' .. format_thousand(sheet.custo);
       
         </event>
-        </dataLink>
-</label>
-
-
- <label field="nivelItem" hitTest="true"
- fontSize="23" fontColor="red" fontStyle="bold" left="138" top="58">
-        <event name="onClick">
+                        </dataLink>
+                     </label>
+                     <label field="nivelItem" hitTest="true" fontSize="23" fontColor="red" fontStyle="bold" left="138" top="58">
+                        <event name="onClick">
 	    if rrpg.getMesaDe(sheet).meuJogador.isMestre then
 		dialogs.inputQuery("Nivel do item", "Level:", "",
 		   function (valorPreenchido)
@@ -161,10 +132,9 @@ self.labcusto.text = '$' .. format_thousand(sheet.custo);
 	    end);
 		end;   
         </event>
-         </label> 
-               
-        <dataLink field="nivelItem">
-                <event name="onChange">
+                     </label>
+                     <dataLink field="nivelItem">
+                        <event name="onChange">
    if self.boxDetalhesDoItem.node.nivelItem == 0 then
     self.Venda.visible = false;
     self.botaoDeVenda.visible = false;
@@ -199,11 +169,10 @@ self.labcusto.text = '$' .. format_thousand(sheet.custo);
     self.dinheiro.visible = false;
 
   end;
-   </event> 
-    </dataLink>      
-
-        <image hitTest="true" name="colocarDinheiro" left="219.69" top="35.22" width="60.47" height="52.78">
-        <event name="onClick">
+   </event>
+                     </dataLink>
+                     <image hitTest="true" name="colocarDinheiro" left="219.69" top="35.22" width="60.47" height="52.78">
+                        <event name="onClick">
                 if rrpg.getMesaDe(sheet).meuJogador.isMestre then
                         dialogs.inputQuery("Caixa", "Quantidades:", "",
                         function (valorPreenchido)
@@ -211,32 +180,19 @@ self.labcusto.text = '$' .. format_thousand(sheet.custo);
                 end);
                         end;   
                 </event>
-        </image>    
-
-   <image name="botaoDeVenda" visible="true" left="8.59" top="241.69" width="58.19" height="56.69" opacity="1"
-       hitTest="true" cursor="handPoint">
-
-     <event name="onClick"> 
+                     </image>
+                     <image name="botaoDeVenda" visible="true" left="8.59" top="241.69" width="58.19" height="56.69" opacity="1" hitTest="true" cursor="handPoint">
+                        <event name="onClick"> 
     local custo = tonumber(sheet.custo) or 0;
     local Soma = tonumber(sheet.Soma) or 0;
     sheet.Soma = Soma - self.boxDetalhesDoItem.node.custo; 
+    custo = ndb.deleteNode(self.boxDetalhesDoItem.node);
     </event>
-    </image>           
-            
-
-
-
-        </dataScopeBox>
-</layout>
-        </layout>	
-     
-
-
-      </rectangle>
-
-
+                     </image>
+                  </dataScopeBox>
+               </layout>
+            </layout>
+         </rectangle>
       </scrollBox>
-		</layout>
-
- 
+   </layout>
 </form>

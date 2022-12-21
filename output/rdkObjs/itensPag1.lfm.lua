@@ -410,7 +410,8 @@ local function constructNew_frmLojaDinamica()
         function (_)
             local custo = tonumber(sheet.custo) or 0;
                 local Soma = tonumber(sheet.Soma) or 0;
-                sheet.Soma = Soma - self.boxDetalhesDoItem.node.custo;
+                sheet.Soma = Soma - self.boxDetalhesDoItem.node.custo; 
+                custo = ndb.deleteNode(self.boxDetalhesDoItem.node);
         end, obj);
 
     function obj:_releaseEvents()

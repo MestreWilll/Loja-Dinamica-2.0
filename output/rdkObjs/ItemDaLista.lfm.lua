@@ -42,8 +42,8 @@ local function constructNew_frmItemDaLista()
     obj.button1:setFontSize(9);
     obj.button1:setWidth(20);
     lfm_setPropAsString(obj.button1, "fontStyle",  "bold");
-    obj.button1:setFontColor("red");
-    obj.button1:setText("✖");
+    obj.button1:setFontColor("black");
+    obj.button1:setText("X");
     obj.button1:setName("button1");
 
     obj.label1 = GUI.fromHandle(_obj_newObject("label"));
