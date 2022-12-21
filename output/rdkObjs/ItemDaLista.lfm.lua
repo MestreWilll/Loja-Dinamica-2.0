@@ -27,13 +27,13 @@ local function constructNew_frmItemDaLista()
     _gui_assignInitialParentForForm(obj.handle);
     obj:beginUpdate();
     obj:setName("frmItemDaLista");
-    obj:setHeight(50);
+    obj:setHeight(80);
     obj:setTheme("dark");
 
     obj.layout1 = GUI.fromHandle(_obj_newObject("layout"));
     obj.layout1:setParent(obj);
     obj.layout1:setAlign("client");
-    obj.layout1:setMargins({left=4, right=4, top=4, bottom=4});
+    obj.layout1:setMargins({left=-4, right=-4, top=-4, bottom=-4});
     obj.layout1:setName("layout1");
 
     obj.button1 = GUI.fromHandle(_obj_newObject("button"));
@@ -41,6 +41,8 @@ local function constructNew_frmItemDaLista()
     obj.button1:setAlign("left");
     obj.button1:setFontSize(9);
     obj.button1:setWidth(20);
+    lfm_setPropAsString(obj.button1, "fontStyle",  "bold");
+    obj.button1:setFontColor("red");
     obj.button1:setText("✖");
     obj.button1:setName("button1");
 
