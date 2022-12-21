@@ -188,11 +188,11 @@ self.labcusto.text = '$' .. format_thousand(sheet.custo);
                            Soma = Soma - self.boxDetalhesDoItem.node.custo;
                            if Soma == 0 then
                              Soma = 0;
+                             sheet.Soma = Soma;
+                             custo = ndb.deleteNode(self.boxDetalhesDoItem.node);    
                            else
                             showMessage("Você não tem mais capital")
                             end;
-                           sheet.Soma = Soma;
-                           custo = ndb.deleteNode(self.boxDetalhesDoItem.node);  
                        </event>
                      </image>
                   </dataScopeBox>

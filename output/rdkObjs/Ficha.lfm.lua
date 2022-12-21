@@ -418,16 +418,14 @@ local function constructNew_frmLojinha()
         function (_)
             local custo = tonumber(sheet.custo) or 0;
                                        local Soma = tonumber(sheet.Soma) or 0;
-                                       
                                        Soma = Soma - self.boxDetalhesDoItem.node.custo;
                                        if Soma == 0 then
                                          Soma = 0;
+                                         sheet.Soma = Soma;
+                                         custo = ndb.deleteNode(self.boxDetalhesDoItem.node);    
                                        else
                                         showMessage("Você não tem mais capital")
                                         end;
-                                       
-                                       sheet.Soma = Soma;
-                                       custo = ndb.deleteNode(self.boxDetalhesDoItem.node);
         end, obj);
 
     function obj:_releaseEvents()
