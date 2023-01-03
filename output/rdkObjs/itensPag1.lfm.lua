@@ -410,13 +410,11 @@ local function constructNew_frmLojaDinamica()
         function (_)
             local custo = tonumber(sheet.custo) or 0;
                                        local Soma = tonumber(sheet.Soma) or 0;
-                                       Soma = Soma - self.boxDetalhesDoItem.node.custo;
                                        if Soma == 0 then
-                                         Soma = 0;
-                                         sheet.Soma = Soma;
-                                         custo = ndb.deleteNode(self.boxDetalhesDoItem.node);    
+                                       showMessage("Você não tem mais capital")
                                        else
-                                        showMessage("Você não tem mais capital")
+                                        sheet.Soma = Soma - self.boxDetalhesDoItem.node.custo;
+                                        custo = ndb.deleteNode(self.boxDetalhesDoItem.node);    
                                         end;
         end, obj);
 
