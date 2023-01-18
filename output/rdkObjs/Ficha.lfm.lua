@@ -417,13 +417,12 @@ local function constructNew_frmLojinha()
     obj._e_event13 = obj.botaoDeVenda:addEventListener("onClick",
         function (_)
             local custo = tonumber(sheet.custo) or 0;
-                                       local Soma = tonumber(sheet.Soma) or 0;
-                                       if Soma == 0 then
-                                       showMessage("Você não tem mais capital")
-                                       else
-                                        sheet.Soma = Soma - self.boxDetalhesDoItem.node.custo;
-                                        custo = ndb.deleteNode(self.boxDetalhesDoItem.node);    
-                                        end;
+                              local Soma = tonumber(sheet.Soma) or 0;
+                              if Soma >= self.boxDetalhesDoItem.node.custo then
+                                 sheet.Soma = Soma - self.boxDetalhesDoItem.node.custo;
+                              else
+                                 showMessage("Você não tem mais dinheiro");
+                              end;
         end, obj);
 
     function obj:_releaseEvents()
