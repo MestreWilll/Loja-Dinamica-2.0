@@ -2,12 +2,17 @@
 -----------------
 * Primeira atualização 
 ``Mecânica implementada para compra``
-![image](https://user-images.githubusercontent.com/87247824/208854495-61b688d2-f44b-4871-a86f-a8419bf08ecd.png)
+![image](https://user-images.githubusercontent.com/87247824/216767508-49d1fa27-fd6d-43a8-a78f-f3016c167ae9.png)
+
+
 --------------
 * Proxima mecânica: 
 ``Receber no inventario``
+![image](https://user-images.githubusercontent.com/87247824/216766393-22bbc361-7b4c-44fd-a923-0dcc1694efd5.png)
 
-![image](https://user-images.githubusercontent.com/87247824/208857415-6fe08406-d750-43e6-ba46-2ce73f80fad8.png)
+
+
+
 
 * sera recebida aqui
 -----------------------
