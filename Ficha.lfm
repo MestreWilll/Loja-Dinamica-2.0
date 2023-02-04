@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form name="frmLojinha" formType="sheetTemplate" dataType="LojaDinamica" title="Loja Dinamica 2.0" align="client">
 
-            <import file="itensPag1.lfm"/> 
+            <import file="Pag1E2Juntas.lfm"/> 
             
 </form>
