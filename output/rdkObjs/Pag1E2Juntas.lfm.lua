@@ -7,7 +7,7 @@ require("ndb.lua");
 require("locale.lua");
 local __o_Utils = require("utils.lua");
 
-local function constructNew_frmLoja()
+local function constructNew_frmPag1E2Juntas()
     local obj = GUI.fromHandle(_obj_newObject("form"));
     local self = obj;
     local sheet = nil;
@@ -26,7 +26,7 @@ local function constructNew_frmLoja()
 
     _gui_assignInitialParentForForm(obj.handle);
     obj:beginUpdate();
-    obj:setName("frmLoja");
+    obj:setName("frmPag1E2Juntas");
     obj:setAlign("client");
     obj:setTheme("dark");
 
@@ -752,25 +752,25 @@ local function constructNew_frmLoja()
     obj._e_event15 = obj.dataLink3:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             function format_thousand(v)
-            	local s = string.format("%d", math.floor(v))
-            	local pos = string.len(s) % 3 
-            	if pos == 0 then pos = 3 end
-                return string.sub(s, 1, pos)
-            	    .. "" .. string.gsub(string.sub(s, pos+1), "(...)", ".%1") 
-            		.. "" .. string.sub(string.format("%.0f", v - math.floor(v)), 3) 
+             local s = string.format("%d", math.floor(v))
+             local pos = string.len(s) % 3 
+             if pos == 0 then pos = 3 end
+             return string.sub(s, 1, pos)
+                 .. "" .. string.gsub(string.sub(s, pos+1), "(...)", ".%1") 
+                 .. "" .. string.sub(string.format("%.0f", v - math.floor(v)), 3) 
             
             end;
-            	  self.labSoma2.text = '$' .. format_thousand(sheet.soma);
+               self.labSoma2.text = '$' .. format_thousand(sheet.soma);
         end, obj);
 
     obj._e_event16 = obj.image5:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
-                                        dialogs.inputQuery("Carteira do jogador", "Colocar dinheiro para jogador:", "",
-                                           function (valorPreenchido)
-                                           sheet.Soma = (sheet.Soma or 0 ) + valorPreenchido; 
-                                    end);
-                                        end;
+                                     dialogs.inputQuery("Carteira do jogador", "Colocar dinheiro para jogador:", "",
+                                        function (valorPreenchido)
+                                        sheet.Soma = (sheet.Soma or 0 ) + valorPreenchido; 
+                                 end);
+                                     end;
         end, obj);
 
     obj._e_event17 = obj.troca2:addEventListener("onMouseEnter",
@@ -786,113 +786,113 @@ local function constructNew_frmLoja()
     obj._e_event19 = obj.troca2:addEventListener("onClick",
         function (_)
             self.fichaPrincipal.visible = true
-                             self.Pag2.visible = false;
+                          self.Pag2.visible = false;
         end, obj);
 
     obj._e_event20 = obj.button4:addEventListener("onClick",
         function (_)
             ----Aqui fica pra ir pra loja
-                           self.Pag1.visible = true;
-                           self.Pag2.visible = false;
+                        self.Pag1.visible = true;
+                        self.Pag2.visible = false;
         end, obj);
 
     obj._e_event21 = obj.button5:addEventListener("onClick",
         function (_)
             --------aqui fica pra ir pros itens 
-                                 self.Pag1.visible = false;
-                                 self.Pag2.visible = true;
+                              self.Pag1.visible = false;
+                              self.Pag2.visible = true;
         end, obj);
 
     obj._e_event22 = obj.button6:addEventListener("onClick",
         function (_)
             -- Usuário clicou no botão de criar novo item.
-                                                -- Vamos inserir um novo item no nosso recordList                              
-                                                self.rclListaDosItens2:append();
+                                             -- Vamos inserir um novo item no nosso recordList                              
+                                             self.rclListaDosItens2:append();
         end, obj);
 
     obj._e_event23 = obj.rclListaDosItens2:addEventListener("onSelect",
         function (_)
             --[[
-                                        Este evento é chamado quando o usuário selecionar/deselecionar itens da lista. Quando o usuário selecionar, vamos fazer nosso dataScopeBox (e todas as tag dentro dele) salvar e carregar dados no   objeto Nodo (NodeDatabase) do item selecionado.
-                
-                                  --]]                      
-                                  local node = self.rclListaDosItens2.selectedNode;  
-                                         self.boxDetalhesDoItem2.node = node;      
-                                   
-                                  -- a caixa de detalhe só ficará visível se houver item selecionado
-                                          self.boxDetalhesDoItem2.visible = (node ~= nil);
+                                     Este evento é chamado quando o usuário selecionar/deselecionar itens da lista. Quando o usuário selecionar, vamos fazer nosso dataScopeBox (e todas as tag dentro dele) salvar e carregar dados no   objeto Nodo (NodeDatabase) do item selecionado.
+             
+                               --]]                      
+                               local node = self.rclListaDosItens2.selectedNode;  
+                                      self.boxDetalhesDoItem2.node = node;      
+                                
+                               -- a caixa de detalhe só ficará visível se houver item selecionado
+                                       self.boxDetalhesDoItem2.visible = (node ~= nil);
         end, obj);
 
     obj._e_event24 = obj.testeee:addEventListener("onClick",
         function (_)
             self.boxDetalhesDoItem2.node.custo = (sheet.custo or 0) + 0;
-                        self.boxDetalhesDoItem2.node.nivelItem = 0;
+                     self.boxDetalhesDoItem2.node.nivelItem = 0;
         end, obj);
 
     obj._e_event25 = obj.label3:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
-                      dialogs.inputQuery("Nivel do item", "Level:", "",
-                         function (valorPreenchido)
-                            self.boxDetalhesDoItem2.node.nivelItem = (sheet.nivelItem or 0) + valorPreenchido; 
-                       end);
-                      end;
+                   dialogs.inputQuery("Nivel do item", "Level:", "",
+                      function (valorPreenchido)
+                         self.boxDetalhesDoItem2.node.nivelItem = (sheet.nivelItem or 0) + valorPreenchido; 
+                    end);
+                   end;
         end, obj);
 
     obj._e_event26 = obj.dataLink4:addEventListener("onChange",
         function (_, field, oldValue, newValue)
             if self.boxDetalhesDoItem2.node.nivelItem == 0 then
-                    self.Venda.visible = false;
-                    self.botaoDeVenda.visible = false;
-                    self.colocarDinheiro.visible = false;
-                    self.naoVende.visible = true;
-                    self.dinheiro.visible = false;
-                   end;
-                  if self.boxDetalhesDoItem2.node.nivelItem == 1 then
-                  self.mercadoNegro.visible = false;
-                  self.naoVende.visible = false;
-                      self.botaoDeVenda.visible = true;
-                    self.Venda.visible = true;
-                    self.botaoDeVenda.visible = true;
-                    self.colocarDinheiro.visible = true;
-                    self.dinheiro.visible = true;
-                 end;
-                  if self.boxDetalhesDoItem2.node.nivelItem == 2 then
-                  self.mercadoNegro.visible = false;
-                  self.naoVende.visible = false;
-                      self.botaoDeVenda.visible = true;
-                    self.Venda.visible = true;
-                    self.botaoDeVenda.visible = true;
-                    self.colocarDinheiro.visible = true;
-                    self.dinheiro.visible = true;
-                 end;
-                  if self.boxDetalhesDoItem2.node.nivelItem == 3 then
-                  self.mercadoNegro.visible = true;
-                      self.botaoDeVenda.visible = false;
-                    self.Venda.visible = false;
-                    self.botaoDeVenda.visible = false;
-                    self.colocarDinheiro.visible = false;
-                    self.dinheiro.visible = false;
-                
-                  end;
+                 self.Venda.visible = false;
+                 self.botaoDeVenda.visible = false;
+                 self.colocarDinheiro.visible = false;
+                 self.naoVende.visible = true;
+                 self.dinheiro.visible = false;
+                end;
+               if self.boxDetalhesDoItem2.node.nivelItem == 1 then
+               self.mercadoNegro.visible = false;
+               self.naoVende.visible = false;
+                   self.botaoDeVenda.visible = true;
+                 self.Venda.visible = true;
+                 self.botaoDeVenda.visible = true;
+                 self.colocarDinheiro.visible = true;
+                 self.dinheiro.visible = true;
+              end;
+               if self.boxDetalhesDoItem2.node.nivelItem == 2 then
+               self.mercadoNegro.visible = false;
+               self.naoVende.visible = false;
+                   self.botaoDeVenda.visible = true;
+                 self.Venda.visible = true;
+                 self.botaoDeVenda.visible = true;
+                 self.colocarDinheiro.visible = true;
+                 self.dinheiro.visible = true;
+              end;
+               if self.boxDetalhesDoItem2.node.nivelItem == 3 then
+               self.mercadoNegro.visible = true;
+                   self.botaoDeVenda.visible = false;
+                 self.Venda.visible = false;
+                 self.botaoDeVenda.visible = false;
+                 self.colocarDinheiro.visible = false;
+                 self.dinheiro.visible = false;
+             
+               end;
         end, obj);
 
     obj._e_event27 = obj.colocarDinheiro:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
-                      dialogs.inputQuery("Caixa", "Quantidades:", "",
-                         function (valorPreenchido)
-                            self.boxDetalhesDoItem2.node.custo = (sheet.custo or 0) + valorPreenchido; 
-                       end);
-                      end;
+                   dialogs.inputQuery("Caixa", "Quantidades:", "",
+                      function (valorPreenchido)
+                         self.boxDetalhesDoItem2.node.custo = (sheet.custo or 0) + valorPreenchido; 
+                    end);
+                   end;
         end, obj);
 
     obj._e_event28 = obj.botaoDeVenda:addEventListener("onClick",
         function (_)
             local custo = tonumber(sheet.custo) or 0;
-                    local Soma = tonumber(sheet.Soma) or 0;
-                    sheet.Soma = Soma + self.boxDetalhesDoItem2.node.custo; 
-                    custo = ndb.deleteNode(self.boxDetalhesDoItem2.node);
+                 local Soma = tonumber(sheet.Soma) or 0;
+                 sheet.Soma = Soma + self.boxDetalhesDoItem2.node.custo; 
+                 custo = ndb.deleteNode(self.boxDetalhesDoItem2.node);
         end, obj);
 
     function obj:_releaseEvents()
@@ -1010,13 +1010,13 @@ local function constructNew_frmLoja()
     return obj;
 end;
 
-function newfrmLoja()
+function newfrmPag1E2Juntas()
     local retObj = nil;
     __o_rrpgObjs.beginObjectsLoading();
 
     __o_Utils.tryFinally(
       function()
-        retObj = constructNew_frmLoja();
+        retObj = constructNew_frmPag1E2Juntas();
       end,
       function()
         __o_rrpgObjs.endObjectsLoading();
@@ -1026,17 +1026,17 @@ function newfrmLoja()
     return retObj;
 end;
 
-local _frmLoja = {
-    newEditor = newfrmLoja, 
-    new = newfrmLoja, 
-    name = "frmLoja", 
+local _frmPag1E2Juntas = {
+    newEditor = newfrmPag1E2Juntas, 
+    new = newfrmPag1E2Juntas, 
+    name = "frmPag1E2Juntas", 
     dataType = "", 
     formType = "undefined", 
     formComponentName = "form", 
     title = "", 
     description=""};
 
-frmLoja = _frmLoja;
-Firecast.registrarForm(_frmLoja);
+frmPag1E2Juntas = _frmPag1E2Juntas;
+Firecast.registrarForm(_frmPag1E2Juntas);
 
-return _frmLoja;
+return _frmPag1E2Juntas;
