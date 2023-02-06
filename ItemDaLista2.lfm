@@ -14,7 +14,7 @@
 
     
                 <!-- O título do item que aparece na lista -->
-                <label align="client" field="campoTitulo2" margins="{left=4}"/>
+                <label align="client" field="CampoTitulo" margins="{left=4}"/>
 
 
         </layout>

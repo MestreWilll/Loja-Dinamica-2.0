@@ -1,5 +1,5 @@
 <group>
-   <layout name="Pag1" align="client" visible="true">
+   <layout name="Pag1" align="client" visible="false">
       <scrollBox align="client">
 
          <rectangle left="0" top="0" width="750" height="650" color="black" xradius="25" yradius="25" cornerType="round">
@@ -116,9 +116,13 @@ end;
                         <event name="onClick">
         self.boxDetalhesDoItem.node.custo = (sheet.custo or 0) + 0;
         self.boxDetalhesDoItem.node.nivelItem = 0;
+        self.boxDetalhesDoItem.node.EdicaoItensLoja = '';
+        self.boxDetalhesDoItem.node.campoTitulo = '';
+        self.boxDetalhesDoItem.node.ImagemDoProduto = '';
+
         </event>
                      </image>
-                     <image field="ImagemDoProduto" editable="true" style="proportional" left="7.81" top="80.88" width="174.56" height="149.63" />
+                     <image field="ImagemDoProduto" name="ImagemDoProduto" editable="true" style="proportional" left="7.81" top="80.88" width="174.56" height="149.63" />
                      
 
 
@@ -167,10 +171,20 @@ self.labcusto.text = '$' .. format_thousand(sheet.custo);
                      </image>
                      <image name="botaoDeVenda2" visible="true" left="8.59" top="241.69" width="58.19" height="56.69" opacity="1" hitTest="true" cursor="handPoint">
                         <event name="onClick"> 
+                            require("internet.lua"); 
+                            local boxDetalhesDoItem2
+                            
                   local custo = tonumber(sheet.custo) or 0;
                   local Soma = tonumber(sheet.Soma) or 0;
                   if Soma >= self.boxDetalhesDoItem.node.custo then
                      sheet.Soma = Soma - self.boxDetalhesDoItem.node.custo;
+                     self.boxDetalhesDoItem2.node.campoTitulo = self.boxDetalhesDoItem.node.campoTitulo
+                     self.boxDetalhesDoItem2.node.nivelItem = self.boxDetalhesDoItem.node.nivelItem
+                     self.boxDetalhesDoItem2.node.ImagemDoProduto = self.boxDetalhesDoItem.node.ImagemDoProduto
+                     self.boxDetalhesDoItem2.node.EdicaoItensLoja = self.boxDetalhesDoItem.node.EdicaoItensLoja
+                     self.boxDetalhesDoItem2.node.EdicaoItensLoja = self.boxDetalhesDoItem.node.EdicaoItensLoja
+                     self.boxDetalhesDoItem2.node.custo = self.boxDetalhesDoItem.node.custo
+                     self.boxDetalhesDoItem2.node.campoSubTitulo = '(Descrição adicional)'
                   else
                      showMessage("Você não tem mais dinheiro");
                   end;

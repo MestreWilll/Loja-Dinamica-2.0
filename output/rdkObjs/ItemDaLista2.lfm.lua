@@ -47,7 +47,7 @@ local function constructNew_frmItemDaLista2()
     obj.label1 = GUI.fromHandle(_obj_newObject("label"));
     obj.label1:setParent(obj.layout1);
     obj.label1:setAlign("client");
-    obj.label1:setField("campoTitulo2");
+    obj.label1:setField("CampoTitulo");
     obj.label1:setMargins({left=4});
     obj.label1:setName("label1");
 

@@ -42,7 +42,7 @@ local function constructNew_frmLojinha()
     obj.Pag1:setParent(obj.frmPag1E2Juntas);
     obj.Pag1:setName("Pag1");
     obj.Pag1:setAlign("client");
-    obj.Pag1:setVisible(true);
+    obj.Pag1:setVisible(false);
 
     obj.scrollBox1 = GUI.fromHandle(_obj_newObject("scrollBox"));
     obj.scrollBox1:setParent(obj.Pag1);
@@ -223,16 +223,16 @@ local function constructNew_frmLojinha()
     obj.Reset:setWidth(58.19);
     obj.Reset:setHeight(56.69);
 
-    obj.image4 = GUI.fromHandle(_obj_newObject("image"));
-    obj.image4:setParent(obj.boxDetalhesDoItem);
-    obj.image4:setField("ImagemDoProduto");
-    obj.image4:setEditable(true);
-    obj.image4:setStyle("proportional");
-    obj.image4:setLeft(7.81);
-    obj.image4:setTop(80.88);
-    obj.image4:setWidth(174.56);
-    obj.image4:setHeight(149.63);
-    obj.image4:setName("image4");
+    obj.ImagemDoProduto = GUI.fromHandle(_obj_newObject("image"));
+    obj.ImagemDoProduto:setParent(obj.boxDetalhesDoItem);
+    obj.ImagemDoProduto:setField("ImagemDoProduto");
+    obj.ImagemDoProduto:setName("ImagemDoProduto");
+    obj.ImagemDoProduto:setEditable(true);
+    obj.ImagemDoProduto:setStyle("proportional");
+    obj.ImagemDoProduto:setLeft(7.81);
+    obj.ImagemDoProduto:setTop(80.88);
+    obj.ImagemDoProduto:setWidth(174.56);
+    obj.ImagemDoProduto:setHeight(149.63);
 
     obj.label1 = GUI.fromHandle(_obj_newObject("label"));
     obj.label1:setParent(obj.boxDetalhesDoItem);
@@ -287,7 +287,7 @@ local function constructNew_frmLojinha()
     obj.Pag2:setParent(obj.frmPag1E2Juntas);
     obj.Pag2:setName("Pag2");
     obj.Pag2:setAlign("client");
-    obj.Pag2:setVisible(false);
+    obj.Pag2:setVisible(true);
 
     obj.scrollBox2 = GUI.fromHandle(_obj_newObject("scrollBox"));
     obj.scrollBox2:setParent(obj.Pag2);
@@ -323,15 +323,15 @@ local function constructNew_frmLojinha()
     obj.dataLink3:setField("Soma");
     obj.dataLink3:setName("dataLink3");
 
-    obj.image5 = GUI.fromHandle(_obj_newObject("image"));
-    obj.image5:setParent(obj.rectangle2);
-    obj.image5:setSRC("/Imagens/layoutDinheiro.png");
-    obj.image5:setHitTest(true);
-    obj.image5:setLeft(280);
-    obj.image5:setTop(-2);
-    obj.image5:setWidth(213);
-    obj.image5:setHeight(56);
-    obj.image5:setName("image5");
+    obj.image4 = GUI.fromHandle(_obj_newObject("image"));
+    obj.image4:setParent(obj.rectangle2);
+    obj.image4:setSRC("/Imagens/layoutDinheiro.png");
+    obj.image4:setHitTest(true);
+    obj.image4:setLeft(280);
+    obj.image4:setTop(-2);
+    obj.image4:setWidth(213);
+    obj.image4:setHeight(56);
+    obj.image4:setName("image4");
 
     obj.troca2 = GUI.fromHandle(_obj_newObject("image"));
     obj.troca2:setParent(obj.rectangle2);
@@ -460,15 +460,15 @@ local function constructNew_frmLojinha()
     lfm_setPropAsString(obj.dinheiro, "fontStyle",  "bold");
     obj.dinheiro:setField("custo");
 
-    obj.image6 = GUI.fromHandle(_obj_newObject("image"));
-    obj.image6:setParent(obj.boxDetalhesDoItem2);
-    obj.image6:setSRC("/Imagens/nivelDoitem.png");
-    obj.image6:setLeft(180);
-    obj.image6:setTop(364);
-    obj.image6:setWidth(205);
-    obj.image6:setHeight(30);
-    obj.image6:setVisible(true);
-    obj.image6:setName("image6");
+    obj.image5 = GUI.fromHandle(_obj_newObject("image"));
+    obj.image5:setParent(obj.boxDetalhesDoItem2);
+    obj.image5:setSRC("/Imagens/nivelDoitem.png");
+    obj.image5:setLeft(180);
+    obj.image5:setTop(364);
+    obj.image5:setWidth(205);
+    obj.image5:setHeight(30);
+    obj.image5:setVisible(true);
+    obj.image5:setName("image5");
 
     obj.label3 = GUI.fromHandle(_obj_newObject("label"));
     obj.label3:setParent(obj.boxDetalhesDoItem2);
@@ -551,14 +551,14 @@ local function constructNew_frmLojinha()
     obj.label5:setWordWrap(true);
     obj.label5:setName("label5");
 
-    obj.image7 = GUI.fromHandle(_obj_newObject("image"));
-    obj.image7:setParent(obj.rectangle3);
-    obj.image7:setSRC("/Imagens/quadradoImagem.png");
-    obj.image7:setLeft(0.5);
-    obj.image7:setTop(33);
-    obj.image7:setWidth(134);
-    obj.image7:setHeight(138);
-    obj.image7:setName("image7");
+    obj.image6 = GUI.fromHandle(_obj_newObject("image"));
+    obj.image6:setParent(obj.rectangle3);
+    obj.image6:setSRC("/Imagens/quadradoImagem.png");
+    obj.image6:setLeft(0.5);
+    obj.image6:setTop(33);
+    obj.image6:setWidth(134);
+    obj.image6:setHeight(138);
+    obj.image6:setName("image6");
 
     obj.layout8 = GUI.fromHandle(_obj_newObject("layout"));
     obj.layout8:setParent(obj.rectangle3);
@@ -566,15 +566,15 @@ local function constructNew_frmLojinha()
     obj.layout8:setHeight(131.5);
     obj.layout8:setName("layout8");
 
-    obj.image8 = GUI.fromHandle(_obj_newObject("image"));
-    obj.image8:setParent(obj.layout8);
-    obj.image8:setAlign("left");
-    obj.image8:setEditable(true);
-    obj.image8:setField("campoURLImagem");
-    obj.image8:setWidth(130);
-    obj.image8:setHeight(130);
-    obj.image8:setMargins({top=-20});
-    obj.image8:setName("image8");
+    obj.image7 = GUI.fromHandle(_obj_newObject("image"));
+    obj.image7:setParent(obj.layout8);
+    obj.image7:setAlign("left");
+    obj.image7:setEditable(true);
+    obj.image7:setField("ImagemDoProduto");
+    obj.image7:setWidth(130);
+    obj.image7:setHeight(130);
+    obj.image7:setMargins({top=-20});
+    obj.image7:setName("image7");
 
     obj.layout9 = GUI.fromHandle(_obj_newObject("layout"));
     obj.layout9:setParent(obj.layout8);
@@ -592,7 +592,7 @@ local function constructNew_frmLojinha()
     obj.textEditor2 = GUI.fromHandle(_obj_newObject("textEditor"));
     obj.textEditor2:setParent(obj.layout9);
     obj.textEditor2:setAlign("top");
-    obj.textEditor2:setField("campoTextoGrande");
+    obj.textEditor2:setField("EdicaoItensLoja");
     obj.textEditor2:setHeight(100);
     obj.textEditor2:setName("textEditor2");
 
@@ -618,14 +618,14 @@ local function constructNew_frmLojinha()
     obj.DragaoDeArmadura:setHeight(370);
     obj.DragaoDeArmadura:setSRC("/Gif/dragãoArmadura.gif");
 
-    obj.image9 = GUI.fromHandle(_obj_newObject("image"));
-    obj.image9:setParent(obj.rectangle2);
-    obj.image9:setSRC("/Imagens/gramaImagem.png");
-    obj.image9:setLeft(175);
-    obj.image9:setTop(520);
-    obj.image9:setWidth(434);
-    obj.image9:setHeight(79);
-    obj.image9:setName("image9");
+    obj.image8 = GUI.fromHandle(_obj_newObject("image"));
+    obj.image8:setParent(obj.rectangle2);
+    obj.image8:setSRC("/Imagens/gramaImagem.png");
+    obj.image8:setLeft(175);
+    obj.image8:setTop(520);
+    obj.image8:setWidth(434);
+    obj.image8:setHeight(79);
+    obj.image8:setName("image8");
 
     obj._e_event0 = obj.dataLink1:addEventListener("onChange",
         function (_, field, oldValue, newValue)
@@ -710,6 +710,9 @@ local function constructNew_frmLojinha()
         function (_)
             self.boxDetalhesDoItem.node.custo = (sheet.custo or 0) + 0;
                     self.boxDetalhesDoItem.node.nivelItem = 0;
+                    self.boxDetalhesDoItem.node.EdicaoItensLoja = '';
+                    self.boxDetalhesDoItem.node.campoTitulo = '';
+                    self.boxDetalhesDoItem.node.ImagemDoProduto = '';
         end, obj);
 
     obj._e_event11 = obj.dataLink2:addEventListener("onChange",
@@ -748,10 +751,20 @@ local function constructNew_frmLojinha()
 
     obj._e_event14 = obj.botaoDeVenda2:addEventListener("onClick",
         function (_)
-            local custo = tonumber(sheet.custo) or 0;
+            require("internet.lua"); 
+                                        local boxDetalhesDoItem2
+                                        
+                              local custo = tonumber(sheet.custo) or 0;
                               local Soma = tonumber(sheet.Soma) or 0;
                               if Soma >= self.boxDetalhesDoItem.node.custo then
                                  sheet.Soma = Soma - self.boxDetalhesDoItem.node.custo;
+                                 self.boxDetalhesDoItem2.node.campoTitulo = self.boxDetalhesDoItem.node.campoTitulo
+                                 self.boxDetalhesDoItem2.node.nivelItem = self.boxDetalhesDoItem.node.nivelItem
+                                 self.boxDetalhesDoItem2.node.ImagemDoProduto = self.boxDetalhesDoItem.node.ImagemDoProduto
+                                 self.boxDetalhesDoItem2.node.EdicaoItensLoja = self.boxDetalhesDoItem.node.EdicaoItensLoja
+                                 self.boxDetalhesDoItem2.node.EdicaoItensLoja = self.boxDetalhesDoItem.node.EdicaoItensLoja
+                                 self.boxDetalhesDoItem2.node.custo = self.boxDetalhesDoItem.node.custo
+                                 self.boxDetalhesDoItem2.node.campoSubTitulo = '(Descrição adicional)'
                               else
                                  showMessage("Você não tem mais dinheiro");
                               end;
@@ -771,7 +784,7 @@ local function constructNew_frmLojinha()
                self.labSoma2.text = '$' .. format_thousand(sheet.soma);
         end, obj);
 
-    obj._e_event16 = obj.image5:addEventListener("onClick",
+    obj._e_event16 = obj.image4:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
                                      dialogs.inputQuery("Carteira do jogador", "Colocar dinheiro para jogador:", "",
@@ -948,7 +961,6 @@ local function constructNew_frmLojinha()
         if self.button3 ~= nil then self.button3:destroy(); self.button3 = nil; end;
         if self.label1 ~= nil then self.label1:destroy(); self.label1 = nil; end;
         if self.layout4 ~= nil then self.layout4:destroy(); self.layout4 = nil; end;
-        if self.image9 ~= nil then self.image9:destroy(); self.image9 = nil; end;
         if self.image3 ~= nil then self.image3:destroy(); self.image3 = nil; end;
         if self.image8 ~= nil then self.image8:destroy(); self.image8 = nil; end;
         if self.dataLink4 ~= nil then self.dataLink4:destroy(); self.dataLink4 = nil; end;
@@ -969,6 +981,7 @@ local function constructNew_frmLojinha()
         if self.rectangle3 ~= nil then self.rectangle3:destroy(); self.rectangle3 = nil; end;
         if self.button2 ~= nil then self.button2:destroy(); self.button2 = nil; end;
         if self.image2 ~= nil then self.image2:destroy(); self.image2 = nil; end;
+        if self.ImagemDoProduto ~= nil then self.ImagemDoProduto:destroy(); self.ImagemDoProduto = nil; end;
         if self.colocarDinheiro ~= nil then self.colocarDinheiro:destroy(); self.colocarDinheiro = nil; end;
         if self.layout3 ~= nil then self.layout3:destroy(); self.layout3 = nil; end;
         if self.mercadoNegro ~= nil then self.mercadoNegro:destroy(); self.mercadoNegro = nil; end;

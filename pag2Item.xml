@@ -1,5 +1,5 @@
 <group>
-<layout name="Pag2" align="client" visible="false">
+<layout name="Pag2" align="client" visible="true">
    <scrollBox align="client">
  
        <rectangle left="0" top="0" width="600" height="601" color="black"
@@ -244,13 +244,13 @@ end;
                      <image src="/Imagens/quadradoImagem.png" left="0.5" top="33" width="134" height="138" />
                      
                          <layout align="top" height="131.5">              
-                                 <image align="left" editable="true" field="campoURLImagem" width="130" height="130" margins="{top=-20}" >
+                                 <image align="left" editable="true" field="ImagemDoProduto" width="130" height="130" margins="{top=-20}" >
                                        </image>     
  
  
                                  <layout align="client" margins="{left=2}">
                                          <edit align="top" field="campoSubTitulo" height="30"/>
-                                         <textEditor align="top" field="campoTextoGrande" height="100"/>
+                                         <textEditor align="top" field="EdicaoItensLoja" height="100"/>
                                  </layout>                      
                          </layout>
  
