@@ -97,8 +97,10 @@ end;
                   <!-- dataScopeBox representando a nossa caixa de detalhes -->
                   <dataScopeBox name="boxDetalhesDoItem" visible="true" align="right" width="500" margins="{left=4, right=4}">
                      <!-- Abaixo as tretas. Para vende com imagem   -->
-                     <image src="/Imagens/LojaDinamica.png" left="0" top="0" width="500" height="300" />
-                     
+                     <image name="LojaDinamica2" src="/Imagens/LojaDinamica2.png" left="0" top="0" width="500" height="300" visible="false" />
+
+                     <image name="LojaDinamica" src="/Imagens/LojaDinamica.png" left="0" top="0" width="500" height="300" visible="true" />
+
  // Loja dinamica com EDITS e IMagem ----------
  
                      <edit name="campoTitulo" field="campoTitulo" horzTextAlign="center" left="221.19" fontStyle="bold" top="145.56" width="180" height="35.44" transparent="true" />
@@ -169,14 +171,15 @@ self.labcusto.text = '$' .. format_thousand(sheet.custo);
                         end;   
                 </event>
                      </image>
+ 
                      <image name="botaoDeVenda2" visible="true" left="8.59" top="241.69" width="58.19" height="56.69" opacity="1" hitTest="true" cursor="handPoint">
                         <event name="onClick"> 
-                            require("internet.lua"); 
-                            local boxDetalhesDoItem2
-                            
+
+                  local boxDetalhesDoItem2
                   local custo = tonumber(sheet.custo) or 0;
                   local Soma = tonumber(sheet.Soma) or 0;
                   if Soma >= self.boxDetalhesDoItem.node.custo then
+            
                      sheet.Soma = Soma - self.boxDetalhesDoItem.node.custo;
                      self.boxDetalhesDoItem2.node.campoTitulo = self.boxDetalhesDoItem.node.campoTitulo
                      self.boxDetalhesDoItem2.node.nivelItem = self.boxDetalhesDoItem.node.nivelItem
@@ -185,6 +188,7 @@ self.labcusto.text = '$' .. format_thousand(sheet.custo);
                      self.boxDetalhesDoItem2.node.EdicaoItensLoja = self.boxDetalhesDoItem.node.EdicaoItensLoja
                      self.boxDetalhesDoItem2.node.custo = self.boxDetalhesDoItem.node.custo
                      self.boxDetalhesDoItem2.node.campoSubTitulo = '(Descrição adicional)'
+                     boxDetalhesDoItem = ndb.deleteNode(self.boxDetalhesDoItem.node);
                   else
                      showMessage("Você não tem mais dinheiro");
                   end;

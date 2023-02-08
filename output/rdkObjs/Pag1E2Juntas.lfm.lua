@@ -163,14 +163,25 @@ local function constructNew_frmPag1E2Juntas()
     obj.boxDetalhesDoItem:setWidth(500);
     obj.boxDetalhesDoItem:setMargins({left=4, right=4});
 
-    obj.image2 = GUI.fromHandle(_obj_newObject("image"));
-    obj.image2:setParent(obj.boxDetalhesDoItem);
-    obj.image2:setSRC("/Imagens/LojaDinamica.png");
-    obj.image2:setLeft(0);
-    obj.image2:setTop(0);
-    obj.image2:setWidth(500);
-    obj.image2:setHeight(300);
-    obj.image2:setName("image2");
+    obj.LojaDinamica2 = GUI.fromHandle(_obj_newObject("image"));
+    obj.LojaDinamica2:setParent(obj.boxDetalhesDoItem);
+    obj.LojaDinamica2:setName("LojaDinamica2");
+    obj.LojaDinamica2:setSRC("/Imagens/LojaDinamica2.png");
+    obj.LojaDinamica2:setLeft(0);
+    obj.LojaDinamica2:setTop(0);
+    obj.LojaDinamica2:setWidth(500);
+    obj.LojaDinamica2:setHeight(300);
+    obj.LojaDinamica2:setVisible(false);
+
+    obj.LojaDinamica = GUI.fromHandle(_obj_newObject("image"));
+    obj.LojaDinamica:setParent(obj.boxDetalhesDoItem);
+    obj.LojaDinamica:setName("LojaDinamica");
+    obj.LojaDinamica:setSRC("/Imagens/LojaDinamica.png");
+    obj.LojaDinamica:setLeft(0);
+    obj.LojaDinamica:setTop(0);
+    obj.LojaDinamica:setWidth(500);
+    obj.LojaDinamica:setHeight(300);
+    obj.LojaDinamica:setVisible(true);
 
     obj.campoTitulo = GUI.fromHandle(_obj_newObject("edit"));
     obj.campoTitulo:setParent(obj.boxDetalhesDoItem);
@@ -195,15 +206,15 @@ local function constructNew_frmPag1E2Juntas()
     obj.textEditor1:setTransparent(true);
     obj.textEditor1:setName("textEditor1");
 
-    obj.image3 = GUI.fromHandle(_obj_newObject("image"));
-    obj.image3:setParent(obj.boxDetalhesDoItem);
-    obj.image3:setHitTest(true);
-    obj.image3:setCursor("handPoint");
-    obj.image3:setLeft(439.56);
-    obj.image3:setTop(0.69);
-    obj.image3:setWidth(58.19);
-    obj.image3:setHeight(56.69);
-    obj.image3:setName("image3");
+    obj.image2 = GUI.fromHandle(_obj_newObject("image"));
+    obj.image2:setParent(obj.boxDetalhesDoItem);
+    obj.image2:setHitTest(true);
+    obj.image2:setCursor("handPoint");
+    obj.image2:setLeft(439.56);
+    obj.image2:setTop(0.69);
+    obj.image2:setWidth(58.19);
+    obj.image2:setHeight(56.69);
+    obj.image2:setName("image2");
 
     obj.Reset = GUI.fromHandle(_obj_newObject("image"));
     obj.Reset:setParent(obj.boxDetalhesDoItem);
@@ -315,15 +326,15 @@ local function constructNew_frmPag1E2Juntas()
     obj.dataLink3:setField("Soma");
     obj.dataLink3:setName("dataLink3");
 
-    obj.image4 = GUI.fromHandle(_obj_newObject("image"));
-    obj.image4:setParent(obj.rectangle2);
-    obj.image4:setSRC("/Imagens/layoutDinheiro.png");
-    obj.image4:setHitTest(true);
-    obj.image4:setLeft(280);
-    obj.image4:setTop(-2);
-    obj.image4:setWidth(213);
-    obj.image4:setHeight(56);
-    obj.image4:setName("image4");
+    obj.image3 = GUI.fromHandle(_obj_newObject("image"));
+    obj.image3:setParent(obj.rectangle2);
+    obj.image3:setSRC("/Imagens/layoutDinheiro.png");
+    obj.image3:setHitTest(true);
+    obj.image3:setLeft(280);
+    obj.image3:setTop(-2);
+    obj.image3:setWidth(213);
+    obj.image3:setHeight(56);
+    obj.image3:setName("image3");
 
     obj.troca2 = GUI.fromHandle(_obj_newObject("image"));
     obj.troca2:setParent(obj.rectangle2);
@@ -452,15 +463,15 @@ local function constructNew_frmPag1E2Juntas()
     lfm_setPropAsString(obj.dinheiro, "fontStyle",  "bold");
     obj.dinheiro:setField("custo");
 
-    obj.image5 = GUI.fromHandle(_obj_newObject("image"));
-    obj.image5:setParent(obj.boxDetalhesDoItem2);
-    obj.image5:setSRC("/Imagens/nivelDoitem.png");
-    obj.image5:setLeft(180);
-    obj.image5:setTop(364);
-    obj.image5:setWidth(205);
-    obj.image5:setHeight(30);
-    obj.image5:setVisible(true);
-    obj.image5:setName("image5");
+    obj.image4 = GUI.fromHandle(_obj_newObject("image"));
+    obj.image4:setParent(obj.boxDetalhesDoItem2);
+    obj.image4:setSRC("/Imagens/nivelDoitem.png");
+    obj.image4:setLeft(180);
+    obj.image4:setTop(364);
+    obj.image4:setWidth(205);
+    obj.image4:setHeight(30);
+    obj.image4:setVisible(true);
+    obj.image4:setName("image4");
 
     obj.label3 = GUI.fromHandle(_obj_newObject("label"));
     obj.label3:setParent(obj.boxDetalhesDoItem2);
@@ -543,14 +554,14 @@ local function constructNew_frmPag1E2Juntas()
     obj.label5:setWordWrap(true);
     obj.label5:setName("label5");
 
-    obj.image6 = GUI.fromHandle(_obj_newObject("image"));
-    obj.image6:setParent(obj.rectangle3);
-    obj.image6:setSRC("/Imagens/quadradoImagem.png");
-    obj.image6:setLeft(0.5);
-    obj.image6:setTop(33);
-    obj.image6:setWidth(134);
-    obj.image6:setHeight(138);
-    obj.image6:setName("image6");
+    obj.image5 = GUI.fromHandle(_obj_newObject("image"));
+    obj.image5:setParent(obj.rectangle3);
+    obj.image5:setSRC("/Imagens/quadradoImagem.png");
+    obj.image5:setLeft(0.5);
+    obj.image5:setTop(33);
+    obj.image5:setWidth(134);
+    obj.image5:setHeight(138);
+    obj.image5:setName("image5");
 
     obj.layout8 = GUI.fromHandle(_obj_newObject("layout"));
     obj.layout8:setParent(obj.rectangle3);
@@ -558,15 +569,15 @@ local function constructNew_frmPag1E2Juntas()
     obj.layout8:setHeight(131.5);
     obj.layout8:setName("layout8");
 
-    obj.image7 = GUI.fromHandle(_obj_newObject("image"));
-    obj.image7:setParent(obj.layout8);
-    obj.image7:setAlign("left");
-    obj.image7:setEditable(true);
-    obj.image7:setField("ImagemDoProduto");
-    obj.image7:setWidth(130);
-    obj.image7:setHeight(130);
-    obj.image7:setMargins({top=-20});
-    obj.image7:setName("image7");
+    obj.image6 = GUI.fromHandle(_obj_newObject("image"));
+    obj.image6:setParent(obj.layout8);
+    obj.image6:setAlign("left");
+    obj.image6:setEditable(true);
+    obj.image6:setField("ImagemDoProduto");
+    obj.image6:setWidth(130);
+    obj.image6:setHeight(130);
+    obj.image6:setMargins({top=-20});
+    obj.image6:setName("image6");
 
     obj.layout9 = GUI.fromHandle(_obj_newObject("layout"));
     obj.layout9:setParent(obj.layout8);
@@ -610,14 +621,14 @@ local function constructNew_frmPag1E2Juntas()
     obj.DragaoDeArmadura:setHeight(370);
     obj.DragaoDeArmadura:setSRC("/Gif/dragãoArmadura.gif");
 
-    obj.image8 = GUI.fromHandle(_obj_newObject("image"));
-    obj.image8:setParent(obj.rectangle2);
-    obj.image8:setSRC("/Imagens/gramaImagem.png");
-    obj.image8:setLeft(175);
-    obj.image8:setTop(520);
-    obj.image8:setWidth(434);
-    obj.image8:setHeight(79);
-    obj.image8:setName("image8");
+    obj.image7 = GUI.fromHandle(_obj_newObject("image"));
+    obj.image7:setParent(obj.rectangle2);
+    obj.image7:setSRC("/Imagens/gramaImagem.png");
+    obj.image7:setLeft(175);
+    obj.image7:setTop(520);
+    obj.image7:setWidth(434);
+    obj.image7:setHeight(79);
+    obj.image7:setName("image7");
 
     obj._e_event0 = obj.dataLink1:addEventListener("onChange",
         function (_, field, oldValue, newValue)
@@ -689,7 +700,7 @@ local function constructNew_frmPag1E2Juntas()
                                       self.boxDetalhesDoItem.visible = (node ~= nil);
         end, obj);
 
-    obj._e_event9 = obj.image3:addEventListener("onClick",
+    obj._e_event9 = obj.image2:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
                             ndb.deleteNode(self.boxDetalhesDoItem.node);
@@ -743,12 +754,11 @@ local function constructNew_frmPag1E2Juntas()
 
     obj._e_event14 = obj.botaoDeVenda2:addEventListener("onClick",
         function (_)
-            require("internet.lua"); 
-                                        local boxDetalhesDoItem2
-                                        
+            local boxDetalhesDoItem2
                               local custo = tonumber(sheet.custo) or 0;
                               local Soma = tonumber(sheet.Soma) or 0;
                               if Soma >= self.boxDetalhesDoItem.node.custo then
+                        
                                  sheet.Soma = Soma - self.boxDetalhesDoItem.node.custo;
                                  self.boxDetalhesDoItem2.node.campoTitulo = self.boxDetalhesDoItem.node.campoTitulo
                                  self.boxDetalhesDoItem2.node.nivelItem = self.boxDetalhesDoItem.node.nivelItem
@@ -757,6 +767,7 @@ local function constructNew_frmPag1E2Juntas()
                                  self.boxDetalhesDoItem2.node.EdicaoItensLoja = self.boxDetalhesDoItem.node.EdicaoItensLoja
                                  self.boxDetalhesDoItem2.node.custo = self.boxDetalhesDoItem.node.custo
                                  self.boxDetalhesDoItem2.node.campoSubTitulo = '(Descrição adicional)'
+                                 boxDetalhesDoItem = ndb.deleteNode(self.boxDetalhesDoItem.node);
                               else
                                  showMessage("Você não tem mais dinheiro");
                               end;
@@ -776,7 +787,7 @@ local function constructNew_frmPag1E2Juntas()
                self.labSoma2.text = '$' .. format_thousand(sheet.soma);
         end, obj);
 
-    obj._e_event16 = obj.image4:addEventListener("onClick",
+    obj._e_event16 = obj.image3:addEventListener("onClick",
         function (_)
             if rrpg.getMesaDe(sheet).meuJogador.isMestre then
                                      dialogs.inputQuery("Carteira do jogador", "Colocar dinheiro para jogador:", "",
@@ -954,12 +965,12 @@ local function constructNew_frmPag1E2Juntas()
         if self.label1 ~= nil then self.label1:destroy(); self.label1 = nil; end;
         if self.layout4 ~= nil then self.layout4:destroy(); self.layout4 = nil; end;
         if self.image3 ~= nil then self.image3:destroy(); self.image3 = nil; end;
-        if self.image8 ~= nil then self.image8:destroy(); self.image8 = nil; end;
         if self.dataLink4 ~= nil then self.dataLink4:destroy(); self.dataLink4 = nil; end;
         if self.image5 ~= nil then self.image5:destroy(); self.image5 = nil; end;
         if self.image7 ~= nil then self.image7:destroy(); self.image7 = nil; end;
         if self.layout5 ~= nil then self.layout5:destroy(); self.layout5 = nil; end;
         if self.naoVende ~= nil then self.naoVende:destroy(); self.naoVende = nil; end;
+        if self.LojaDinamica ~= nil then self.LojaDinamica:destroy(); self.LojaDinamica = nil; end;
         if self.dataLink1 ~= nil then self.dataLink1:destroy(); self.dataLink1 = nil; end;
         if self.textEditor3 ~= nil then self.textEditor3:destroy(); self.textEditor3 = nil; end;
         if self.troca ~= nil then self.troca:destroy(); self.troca = nil; end;
@@ -1011,6 +1022,7 @@ local function constructNew_frmPag1E2Juntas()
         if self.colocarDinheiro2 ~= nil then self.colocarDinheiro2:destroy(); self.colocarDinheiro2 = nil; end;
         if self.dinheiro ~= nil then self.dinheiro:destroy(); self.dinheiro = nil; end;
         if self.image4 ~= nil then self.image4:destroy(); self.image4 = nil; end;
+        if self.LojaDinamica2 ~= nil then self.LojaDinamica2:destroy(); self.LojaDinamica2 = nil; end;
         if self.edit2 ~= nil then self.edit2:destroy(); self.edit2 = nil; end;
         if self.scrollBox1 ~= nil then self.scrollBox1:destroy(); self.scrollBox1 = nil; end;
         if self.edit1 ~= nil then self.edit1:destroy(); self.edit1 = nil; end;
