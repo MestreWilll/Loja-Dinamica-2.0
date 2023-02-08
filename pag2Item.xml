@@ -57,7 +57,7 @@ end;
              
          </layout>
                             /////Botões de visibilidade de inventario e loja
-                  <button left="475" top="8" width="50" text="Loja" fontStyle="italic">
+                  <button left="525" top="8" width="50" text="Loja" fontStyle="italic">
                      <event name="onClick">
             ----Aqui fica pra ir pra loja
             self.Pag1.visible = true;
@@ -65,7 +65,7 @@ end;
                      </event>
                   </button>
 
-                  <button left="525" top="8" width="50" text="Itens" fontStyle="italic">
+                  <button left="475" top="8" width="50" text="Itens" fontStyle="italic">
                      <event name="onClick">
                   --------aqui fica pra ir pros itens 
                   self.Pag1.visible = false;
@@ -93,12 +93,10 @@ end;
                                  align="client" selectable="true">                              
  
                  <event name="onSelect">
-                   local node = self.rclListaDosItens2.selectedNode;  
-                          self.boxDetalhesDoItem2.node = node;      
-                    
-                   -- a caixa de detalhe só ficará visível se houver item selecionado
-                           self.boxDetalhesDoItem2.visible = (node ~= nil);
-                 </event>
+                    local node = self.rclListaDosItens2.selectedNode;
+                    self.boxDetalhesDoItem2.node = node;
+                    self.boxDetalhesDoItem2.visible = true;
+                                 </event>
                  
          </recordList>       
          <!-- dataScopeBox representando a nossa caixa de detalhes -->  

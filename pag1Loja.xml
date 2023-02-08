@@ -64,7 +64,7 @@ end;
                   </layout>
 
                      /////Botões de visibilidade de inventario e loja
-                     <button left="470" width="50" text="Loja" fontStyle="italic">
+                     <button left="520" width="50" text="Loja" fontStyle="italic">
                         <event name="onClick">
                ----Aqui fica pra ir pra loja
                self.Pag1.visible = true;
@@ -72,7 +72,7 @@ end;
                         </event>
                      </button>
 
-                     <button left="520" width="50" text="Itens" fontStyle="italic">
+                     <button left="470" width="50" text="Itens" fontStyle="italic">
                         <event name="onClick">
                      --------aqui fica pra ir pros itens 
                      self.Pag1.visible = false;
@@ -92,6 +92,7 @@ end;
 						 
                   -- a caixa de detalhe só ficará visível se houver item selecionado
                           self.boxDetalhesDoItem.visible = (node ~= nil);
+
                 </event>
                   </recordList>
                   <!-- dataScopeBox representando a nossa caixa de detalhes -->
@@ -179,7 +180,8 @@ self.labcusto.text = '$' .. format_thousand(sheet.custo);
                   local custo = tonumber(sheet.custo) or 0;
                   local Soma = tonumber(sheet.Soma) or 0;
                   if Soma >= self.boxDetalhesDoItem.node.custo then
-            
+
+                                    
                      sheet.Soma = Soma - self.boxDetalhesDoItem.node.custo;
                      self.boxDetalhesDoItem2.node.campoTitulo = self.boxDetalhesDoItem.node.campoTitulo
                      self.boxDetalhesDoItem2.node.nivelItem = self.boxDetalhesDoItem.node.nivelItem
@@ -188,6 +190,7 @@ self.labcusto.text = '$' .. format_thousand(sheet.custo);
                      self.boxDetalhesDoItem2.node.EdicaoItensLoja = self.boxDetalhesDoItem.node.EdicaoItensLoja
                      self.boxDetalhesDoItem2.node.custo = self.boxDetalhesDoItem.node.custo
                      self.boxDetalhesDoItem2.node.campoSubTitulo = '(Descrição adicional)'
+                     
                      boxDetalhesDoItem = ndb.deleteNode(self.boxDetalhesDoItem.node);
                   else
                      showMessage("Você não tem mais dinheiro");

@@ -141,7 +141,7 @@ local function constructNew_frmLojinha()
 
     obj.button2 = GUI.fromHandle(_obj_newObject("button"));
     obj.button2:setParent(obj.layout2);
-    obj.button2:setLeft(470);
+    obj.button2:setLeft(520);
     obj.button2:setWidth(50);
     obj.button2:setText("Loja");
     lfm_setPropAsString(obj.button2, "fontStyle",  "italic");
@@ -149,7 +149,7 @@ local function constructNew_frmLojinha()
 
     obj.button3 = GUI.fromHandle(_obj_newObject("button"));
     obj.button3:setParent(obj.layout2);
-    obj.button3:setLeft(520);
+    obj.button3:setLeft(470);
     obj.button3:setWidth(50);
     obj.button3:setText("Itens");
     lfm_setPropAsString(obj.button3, "fontStyle",  "italic");
@@ -375,7 +375,7 @@ local function constructNew_frmLojinha()
 
     obj.button4 = GUI.fromHandle(_obj_newObject("button"));
     obj.button4:setParent(obj.layout4);
-    obj.button4:setLeft(475);
+    obj.button4:setLeft(525);
     obj.button4:setTop(8);
     obj.button4:setWidth(50);
     obj.button4:setText("Loja");
@@ -384,7 +384,7 @@ local function constructNew_frmLojinha()
 
     obj.button5 = GUI.fromHandle(_obj_newObject("button"));
     obj.button5:setParent(obj.layout4);
-    obj.button5:setLeft(525);
+    obj.button5:setLeft(475);
     obj.button5:setTop(8);
     obj.button5:setWidth(50);
     obj.button5:setText("Itens");
@@ -766,7 +766,8 @@ local function constructNew_frmLojinha()
                               local custo = tonumber(sheet.custo) or 0;
                               local Soma = tonumber(sheet.Soma) or 0;
                               if Soma >= self.boxDetalhesDoItem.node.custo then
-                        
+            
+                                                
                                  sheet.Soma = Soma - self.boxDetalhesDoItem.node.custo;
                                  self.boxDetalhesDoItem2.node.campoTitulo = self.boxDetalhesDoItem.node.campoTitulo
                                  self.boxDetalhesDoItem2.node.nivelItem = self.boxDetalhesDoItem.node.nivelItem
@@ -775,6 +776,7 @@ local function constructNew_frmLojinha()
                                  self.boxDetalhesDoItem2.node.EdicaoItensLoja = self.boxDetalhesDoItem.node.EdicaoItensLoja
                                  self.boxDetalhesDoItem2.node.custo = self.boxDetalhesDoItem.node.custo
                                  self.boxDetalhesDoItem2.node.campoSubTitulo = '(Descrição adicional)'
+                                 
                                  boxDetalhesDoItem = ndb.deleteNode(self.boxDetalhesDoItem.node);
                               else
                                  showMessage("Você não tem mais dinheiro");
@@ -844,11 +846,9 @@ local function constructNew_frmLojinha()
 
     obj._e_event23 = obj.rclListaDosItens2:addEventListener("onSelect",
         function (_)
-            local node = self.rclListaDosItens2.selectedNode;  
-                                      self.boxDetalhesDoItem2.node = node;      
-                                
-                               -- a caixa de detalhe só ficará visível se houver item selecionado
-                                       self.boxDetalhesDoItem2.visible = (node ~= nil);
+            local node = self.rclListaDosItens2.selectedNode;
+                                self.boxDetalhesDoItem2.node = node;
+                                self.boxDetalhesDoItem2.visible = true;
         end, obj);
 
     obj._e_event24 = obj.testeee:addEventListener("onClick",
