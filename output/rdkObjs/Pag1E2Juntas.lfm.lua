@@ -836,11 +836,7 @@ local function constructNew_frmPag1E2Juntas()
 
     obj._e_event23 = obj.rclListaDosItens2:addEventListener("onSelect",
         function (_)
-            --[[
-                                     Este evento é chamado quando o usuário selecionar/deselecionar itens da lista. Quando o usuário selecionar, vamos fazer nosso dataScopeBox (e todas as tag dentro dele) salvar e carregar dados no   objeto Nodo (NodeDatabase) do item selecionado.
-             
-                               --]]                      
-                               local node = self.rclListaDosItens2.selectedNode;  
+            local node = self.rclListaDosItens2.selectedNode;  
                                       self.boxDetalhesDoItem2.node = node;      
                                 
                                -- a caixa de detalhe só ficará visível se houver item selecionado
