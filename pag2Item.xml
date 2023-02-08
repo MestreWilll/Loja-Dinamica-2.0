@@ -93,10 +93,6 @@ end;
                                  align="client" selectable="true">                              
  
                  <event name="onSelect">
-                         --[[
-                         Este evento é chamado quando o usuário selecionar/deselecionar itens da lista. Quando o usuário selecionar, vamos fazer nosso dataScopeBox (e todas as tag dentro dele) salvar e carregar dados no   objeto Nodo (NodeDatabase) do item selecionado.
- 
-                   --]]                      
                    local node = self.rclListaDosItens2.selectedNode;  
                           self.boxDetalhesDoItem2.node = node;      
                     
